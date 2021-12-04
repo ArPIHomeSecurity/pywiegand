@@ -1,6 +1,24 @@
+[tool.poetry]
+name = "pywiegand"
+version = "0.3.9"
+description = "Wiegand protocol on Raspberry PI"
+authors = ["Gábor Kovács <gkovacs81@gmail.com>"]
+homepage = "https://github.com/ArPIHomeSecurity/pywiegand"
+repository = "https://github.com/ArPIHomeSecurity/pywiegand"
+license = "MIT"
+readme = "README.md"
+include = ["LICENSE"]
+
+build = "build.py"
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+wiringPi = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

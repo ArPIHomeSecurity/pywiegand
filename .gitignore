@@ -1,2 +1,6 @@
 dist
 *.egg-info
+*.pyc
+*.so
+*.o
+build/*

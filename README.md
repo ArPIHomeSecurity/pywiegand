@@ -3,15 +3,13 @@
 Using GPIO you can read the key presses and card codes from a keypad with the Wiegand protocol.
 
 ```python
-import logging
-import pywiegand as wr
+>>> from  pywiegand import WiegandReader
+>>> wr = WiegandReader(6, 5)
+# reading card
+>>> wr.read()
+'560019750914'
 
-reader = wr.construct()
-wr.begin(reader, data0, data1)
-wr.ReadData(self._reader)
-
-pending = wr.GetPendingBitCount(self._reader)
-
-binary_data, bits = wr.ReadData(self._reader)
-logging.debug("Wiegand(Data:%s Bit count:%s Pending: %s)", binary_data, bits, pending)
+# reading keys
+>>> wr.read()
+['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '#']
 ```
