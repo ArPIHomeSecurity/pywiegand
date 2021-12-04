@@ -1,4 +1,4 @@
-# Python Wiegand reader on raspberry
+# Python Wiegand reader on Raspberry PI
 
 Using GPIO you can read the key presses and card codes from a keypad with the Wiegand protocol.
 
