@@ -74,22 +74,20 @@ class WiegandReader:
 
         return keys
     
-    @staticmethod
-    def get_pending_bit_count():
+    def get_pending_bit_count(self):
         """
         Retrieved the number of bit available for reading.
 
         Returns:
             int: number of available bits
         """
-        return wa.get_pending_bit_count()
+        return wa.get_pending_bit_count(self._reader)
     
-    @staticmethod
-    def is_initialized():
+    def is_initialized(self):
         """
         Check if the module is initialized.
 
         Returns:
             int: 1 if initialized
         """
-        return wa.is_initialized()
+        return wa.is_initialized(self._reader)

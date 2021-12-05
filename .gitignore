@@ -4,3 +4,4 @@ dist
 *.so
 *.o
 build/*
+setup.py
