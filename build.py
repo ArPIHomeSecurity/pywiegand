@@ -1,5 +1,8 @@
+import os
+import shutil
+
 from distutils.command.build_ext import build_ext
-from distutils.core import Extension
+from distutils.core import Extension, Distribution
 from distutils.errors import CCompilerError, DistutilsExecError, DistutilsPlatformError
 
 ext_modules = [
@@ -38,13 +41,21 @@ class ExtBuilder(build_ext):
             raise BuildFailed('Could not compile C extension.')
 
 
-def build(setup_kwargs):
-    """
-    This function is mandatory in order to build the extensions.
-    """
-    setup_kwargs.update({
-        "ext_modules": ext_modules,
-        "cmdclass": {
-            "build_ext": ExtBuilder
-        }
-    })
+def build():
+    distribution = Distribution({'name': 'extended', 'ext_modules': ext_modules})
+    distribution.package_dir = 'extended'
+
+    cmd = build_ext(distribution)
+    cmd.ensure_finalized()
+    cmd.run()
+
+    # Copy built extensions back to the project
+    for output in cmd.get_outputs():
+        relative_extension = os.path.relpath(output, cmd.build_lib)
+        shutil.copyfile(output, relative_extension)
+        mode = os.stat(relative_extension).st_mode
+        mode |= (mode & 0o444) >> 2
+        os.chmod(relative_extension, mode)
+
+if __name__ == '__main__':
+    build()
