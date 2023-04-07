@@ -2,6 +2,7 @@
 
 Using GPIO you can read the key presses and card codes from a keypad with the Wiegand protocol.
 
+[![Downloads](https://static.pepy.tech/personalized-badge/pywiegand?period=week&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/pywiegand)
 
 # Requirements
 
