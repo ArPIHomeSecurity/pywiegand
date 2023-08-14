@@ -17,71 +17,87 @@ ISREntry ISRArray[4] = {
 };
 
 void ISR1(void) {
-  if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
-    ISRArray[0].__wiegandBitCount++;
+  if (digitalRead(ISRArray[0].d1) == HIGH) {
+    if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
+      ISRArray[0].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
 }
 
 void ISR2(void) {
-  if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
-    ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] |= 1;
-    ISRArray[0].__wiegandBitCount++;
+  if (digitalRead(ISRArray[0].d0) == HIGH) {
+    if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
+      ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] |= 1;
+      ISRArray[0].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
 }
 
 void ISR3(void) {
-  if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
-    ISRArray[1].__wiegandBitCount++;
+  if (digitalRead(ISRArray[1].d1) == HIGH) {
+    if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
+      ISRArray[1].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
 }
 
 void ISR4(void) {
-  if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
-    ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] |= 1;
-    ISRArray[1].__wiegandBitCount++;
+  if (digitalRead(ISRArray[1].d0) == HIGH) {
+    if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
+      ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] |= 1;
+      ISRArray[1].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
 }
 
 void ISR5(void) {
-  if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
-    ISRArray[2].__wiegandBitCount++;
+  if (digitalRead(ISRArray[2].d1) == HIGH) {
+    if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
+      ISRArray[2].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
 }
 
 void ISR6(void) {
-  if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
-    ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] |= 1;
-    ISRArray[2].__wiegandBitCount++;
+  if (digitalRead(ISRArray[2].d0) == HIGH) {
+    if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
+      ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] |= 1;
+      ISRArray[2].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
 }
 
 void ISR7(void) {
-  if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
-    ISRArray[3].__wiegandBitCount++;
+  if (digitalRead(ISRArray[3].d1) == HIGH) {
+    if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
+      ISRArray[3].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
 }
 
 void ISR8(void) {
-  if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-    ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
-    ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] |= 1;
-    ISRArray[3].__wiegandBitCount++;
+  if (digitalRead(ISRArray[3].d0) == HIGH) {
+    if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+      ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
+      ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] |= 1;
+      ISRArray[3].__wiegandBitCount++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
   }
-  clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
 }
 
 Wiegand::Wiegand() {
@@ -103,7 +119,7 @@ int Wiegand::Begin(int d0pin, int d1pin) {
       printf("Unable to init wiringPI");
       return 0;
     }
-    switch (this->m_isrord) {
+    switch (this->x) {
     case 0:
       ISRArray[this->m_isrord].isrd0 = &ISR1;
       ISRArray[this->m_isrord].isrd1 = &ISR2;
