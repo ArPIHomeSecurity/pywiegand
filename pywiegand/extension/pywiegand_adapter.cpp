@@ -119,7 +119,7 @@ int Wiegand::Begin(int d0pin, int d1pin) {
       printf("Unable to init wiringPI");
       return 0;
     }
-    switch (this->x) {
+    switch (this->m_isrord) {
     case 0:
       ISRArray[this->m_isrord].isrd0 = &ISR1;
       ISRArray[this->m_isrord].isrd1 = &ISR2;
