@@ -17,87 +17,71 @@ ISREntry ISRArray[4] = {
 };
 
 void ISR1(void) {
-  if (digitalRead(ISRArray[0].d1) == HIGH) {
-    if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
-      ISRArray[0].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
+  if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
+    ISRArray[0].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
 }
 
 void ISR2(void) {
-  if (digitalRead(ISRArray[0].d0) == HIGH) {
-    if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
-      ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] |= 1;
-      ISRArray[0].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
+  if (ISRArray[0].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] <<= 1;
+    ISRArray[0].__wiegandData[ISRArray[0].__wiegandBitCount / 8] |= 1;
+    ISRArray[0].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[0].__wiegandBitTime);
 }
 
 void ISR3(void) {
-  if (digitalRead(ISRArray[1].d1) == HIGH) {
-    if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
-      ISRArray[1].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
+  if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
+    ISRArray[1].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
 }
 
 void ISR4(void) {
-  if (digitalRead(ISRArray[1].d0) == HIGH) {
-    if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
-      ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] |= 1;
-      ISRArray[1].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
+  if (ISRArray[1].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] <<= 1;
+    ISRArray[1].__wiegandData[ISRArray[1].__wiegandBitCount / 8] |= 1;
+    ISRArray[1].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[1].__wiegandBitTime);
 }
 
 void ISR5(void) {
-  if (digitalRead(ISRArray[2].d1) == HIGH) {
-    if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
-      ISRArray[2].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
+  if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
+    ISRArray[2].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
 }
 
 void ISR6(void) {
-  if (digitalRead(ISRArray[2].d0) == HIGH) {
-    if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
-      ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] |= 1;
-      ISRArray[2].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
+  if (ISRArray[2].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] <<= 1;
+    ISRArray[2].__wiegandData[ISRArray[2].__wiegandBitCount / 8] |= 1;
+    ISRArray[2].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[2].__wiegandBitTime);
 }
 
 void ISR7(void) {
-  if (digitalRead(ISRArray[3].d1) == HIGH) {
-    if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
-      ISRArray[3].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
+  if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
+    ISRArray[3].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
 }
 
 void ISR8(void) {
-  if (digitalRead(ISRArray[3].d0) == HIGH) {
-    if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
-      ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
-      ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] |= 1;
-      ISRArray[3].__wiegandBitCount++;
-    }
-    clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
+  if (ISRArray[3].__wiegandBitCount / 8 < WIEGANDMAXDATA) {
+    ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] <<= 1;
+    ISRArray[3].__wiegandData[ISRArray[3].__wiegandBitCount / 8] |= 1;
+    ISRArray[3].__wiegandBitCount++;
   }
+  clock_gettime(CLOCK_MONOTONIC, &ISRArray[3].__wiegandBitTime);
 }
 
 Wiegand::Wiegand() {
@@ -249,21 +233,28 @@ PyObject *IsInitialized(PyObject *self, PyObject *args) {
 
 PyObject *ReadData(PyObject *self, PyObject *args) {
   char data[WIEGANDMAXDATA];
-  char binstr[100];
+  char binstr[256];
   char bstr[9];
   int bitlen;
   int slen;
   int i;
+  size_t binstrsize;
   PyObject *wrCapsule_;
   PyArg_ParseTuple(args, "O", &wrCapsule_);
   Wiegand *WR = (Wiegand *)PyCapsule_GetPointer(wrCapsule_, "WRPtr");
   memset(&data[0], 0, WIEGANDMAXDATA);
   bitlen = WR->ReadData((void *)data, WIEGANDMAXDATA);
-  memset(&binstr[0], 0, 100);
+  binstrsize = sizeof(binstr);
+  memset(&binstr[0], 0, binstrsize);
   slen = (bitlen / 8 + 1);
   for (i = 0; i < slen; i++) {
     WR->PrintBinCharPad(data[i], bstr);
-    strcat(binstr, bstr);
+    if (strlen(binstr) + strlen(bstr) < binstrsize) {
+      strcat(binstr, bstr);
+    } else {
+      printf("Data overflow was truncated\n");
+      break;
+    }
   }
 
   return Py_BuildValue("si", binstr, bitlen);
