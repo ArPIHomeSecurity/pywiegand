@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pywiegand"
-version = "0.4.3"
+version = "0.4.4"
 description = "Wiegand protocol on Raspberry PI"
 authors = ["Gábor Kovács <gkovacs81@gmail.com>"]
 homepage = "https://github.com/ArPIHomeSecurity/pywiegand"
