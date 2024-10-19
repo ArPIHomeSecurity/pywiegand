@@ -32,3 +32,13 @@ pip install pywiegand
 >>> wr.read()
 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '#']
 ```
+
+# Building
+
+Do the following steps on the target device to build the package.
+
+1. Install WiringPI https://github.com/wiringPi/WiringPi/
+2. Install Python3 and poetry https://python-poetry.org/
+3. Clone the repository
+4. Run `poetry build`
+5. Install the package with `pip install dist/pywiegand-<version>.tar.gz`

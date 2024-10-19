@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pywiegand"
-version = "0.4.4"
+version = "0.5.0"
 description = "Wiegand protocol on Raspberry PI"
 authors = ["Gábor Kovács <gkovacs81@gmail.com>"]
 homepage = "https://github.com/ArPIHomeSecurity/pywiegand"
@@ -15,7 +15,6 @@ generate-setup-file = false
 
 [tool.poetry.dependencies]
 python = "^3.7"
-wiringPi = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

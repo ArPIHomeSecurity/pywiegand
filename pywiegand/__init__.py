@@ -27,6 +27,9 @@ class WiegandReader:
         # Cleanup before using
         wa.read_data(self._reader)
 
+    def __del__(self):
+        wa.end(self._reader)
+
     def read(self) -> list():
         """
         Reading the key presses or card codes from the keypad.

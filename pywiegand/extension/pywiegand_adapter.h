@@ -22,6 +22,7 @@ public:
   Wiegand();
 
   int Begin(int d0pin, int d1pin);
+  void End(void);
   int GetPendingBitCount(void);
   int ReadData(void *data, int dataMaxLen);
   void PrintBinCharPad(char c, char *resarr);

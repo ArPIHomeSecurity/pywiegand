@@ -148,6 +148,13 @@ int Wiegand::Begin(int d0pin, int d1pin) {
   return this->m_isinit;
 }
 
+void Wiegand::End(void) {
+  if (this->m_isinit == 1) {
+    wiringPiISRStop(this->m_d0pin);
+    wiringPiISRStop(this->m_d1pin);
+  }
+}
+
 void Wiegand::Reset(void) {
   if (this->m_isinit == 1) {
     memset((void *)ISRArray[this->m_isrord].__wiegandData, 0, WIEGANDMAXDATA);
@@ -213,6 +220,14 @@ PyObject *Begin(PyObject *self, PyObject *args) {
   }
 }
 
+PyObject *End(PyObject *self, PyObject *args) {
+  PyObject *wrCapsule_;
+  PyArg_ParseTuple(args, "O", &wrCapsule_);
+  Wiegand *WR = (Wiegand *)PyCapsule_GetPointer(wrCapsule_, "WRPtr");
+  WR->End();
+  Py_RETURN_NONE;
+}
+
 PyObject *GetPendingBitCount(PyObject *self, PyObject *args) {
   PyObject *wrCapsule_;
   PyArg_ParseTuple(args, "O", &wrCapsule_);
@@ -266,6 +281,7 @@ PyObject *ReadData(PyObject *self, PyObject *args) {
 static PyMethodDef pywiegand_adapter_methods[] = {
     {"construct", Construct, METH_VARARGS, "Create Wiegand object"},
     {"begin", Begin, METH_VARARGS, "Init GPIO pins"},
+    {"end", End, METH_VARARGS, "Deinit GPIO pins"},
     {"is_initialized", IsInitialized, METH_VARARGS, "return 1 if initialized"},
     {"get_pending_bit_count", GetPendingBitCount, METH_VARARGS, "Get pending bits in queue"},
     {"read_data", ReadData, METH_VARARGS, "Read data"},
